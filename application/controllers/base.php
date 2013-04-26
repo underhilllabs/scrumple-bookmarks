@@ -16,5 +16,6 @@ class Base_Controller extends Controller {
   public function __construct(){
     //styles
     Asset::add('main_style', 'css/app.css');
+    Asset::add('bootstrap_style', 'css/bootstrap.min.css');
   }
 }

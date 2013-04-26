@@ -1,0 +1,32 @@
+div.pagination ul {
+  border:0;
+  margin:0;
+  padding:0;
+  padding-bottom: 2em;
+}
+div.pagination ul li {
+  border:0;
+  margin: .5em;
+  font-size:18px;
+  list-style:none;
+  float: left;
+}
+div.pagination ul li.active a {
+  background: #ffcc99;
+  color: #333;
+  text-decoration: none;
+}
+div.pagination ul li a {
+  border:solid 1px #DDDDDD;
+  padding: .25em;
+  margin-right:2px;
+}
+
+div.bookmark {
+  margin: 0;
+  padding-left: 1em;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  background: #eee;
+  border-bottom: 1px dashed #aaa;
+}
