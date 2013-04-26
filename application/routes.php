@@ -32,9 +32,30 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('home.index');
+//Route::get('/', function()
+//{
+	//#return View::make('home.index');
+
+//});
+Route::get('/', 'bookmark@index');
+Route::get('bookmark/(:num)', 'bookmark@show');
+
+// show bookmarks with specified
+Route::get('tags/(:any)', 'tags@show');
+
+// show all tags
+Route::get('tags/', function () {
+  return View::make('tags.index');
+});
+
+Route::get('users', function () {
+   $users = User::all();
+   return View::make('user.all');
+});
+
+Route::get('user/(:num)', function ($id) {
+  $user = User::find($id);
+  return View::make('user.show');
 });
 
 /*
