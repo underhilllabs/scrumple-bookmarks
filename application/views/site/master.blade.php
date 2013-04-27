@@ -8,8 +8,8 @@
   <div class="navbar-inner">
     <a class="brand" href="#">Scrumple Bookmarks</a>
     <ul class="nav">
-      <li class="active"><a href="/">bookmarks</a></li>
-      <li><a href="/users/">users</a></li>
+      <li class=""><a href="/">bookmarks</a></li>
+      <li class=""><a href="/users/">users</a></li>
       <li><a href="/tags/">tags</a></li>
     </ul>
   </div>
