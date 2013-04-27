@@ -1,4 +1,9 @@
-
+span.tag {
+  margin-right: .5em;
+}
+span.tag a {
+  margin-left: .25em;
+}
 
 div.bookmark {
   margin: 0;
