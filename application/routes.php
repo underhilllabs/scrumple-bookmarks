@@ -41,12 +41,14 @@ Route::get('/', 'bookmark@index');
 Route::get('bookmark/(:num)', 'bookmark@show');
 
 // show bookmarks with specified
-Route::get('tags/(:any)', 'tags@show');
+Route::get('tag/(:any)', 'tag@show');
+Route::get('tags', 'tag@index');
 
 // show all tags
-Route::get('tags/', function () {
-  return View::make('tags.index');
-});
+//Route::get('tags', function () {
+//  $tags = Tag::getTagCount();
+//  return View::make('tags.index')->with('tags',$tags);
+//});
 
 Route::get('users', function () {
    $users = User::all();

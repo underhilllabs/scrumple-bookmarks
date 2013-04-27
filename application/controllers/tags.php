@@ -1,15 +1,12 @@
-
 <?php
 
-class Bookmark_Controller extends Base_Controller {
+class Tag_Controller extends Base_Controller {
 
 	public function action_index()
     {
-      $bookmarks = Bookmark::with('tags')
-                  ->order_by('created_at','desc')
-                  ->paginate(25);
-      return View::make('bookmark.index')
-                  ->with('bookmarks', $bookmarks);
+      $tags = Tag::getTagCount();
+      return View::make('tags.index')
+                  ->with('tags', $tags);
     }
 
 	public function action_show($id)
