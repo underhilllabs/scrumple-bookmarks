@@ -25,6 +25,25 @@ class User_Controller extends Base_Controller {
 
     }
 
+  // Show registration form
+  public function get_register()
+    {
+      return View::make('user.register');
+    }
+  public function post_register()
+    {
+      if(Input::post('inputPassword') == Input::post('inputPassword2'))
+      {
+        $user = new User;
+        $user->email = Input::post('inputEmail');
+        $user->password = Hash::make(Input::post('inputPassword'));
+        $user->save();
+      } else {
+        return Redirect::to('/user/register');
+      }
+      return View::make('user.profile');
+    }
+
   // Show login form
   public function get_login()
     {
@@ -34,10 +53,19 @@ class User_Controller extends Base_Controller {
   // Posted login form, attempt to authenticate
   public function post_login()
     {
+      $email = Input::post('inputEmail');
+      $password = Input::post('inputPassword');
+      $credentials = array('username' => $email, 'password' => $password);
       if (Auth::attempt($credentials))
       {
         return Redirect::to('user/profile');
       }
+      else
+      {
+        $flash = "Authentication unsuccessful!";
+        return View::make('user/login')->with('message', $flash);
+      }
+
     }
 
   public function get_profile($id)
