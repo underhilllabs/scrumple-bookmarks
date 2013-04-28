@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>Let's check out {{$user->username}}'s bookmarks</h1>
-@foreach ($bookmarks->results as $bookmark)
+@forelse ($bookmarks->results as $bookmark)
   <div class="bookmark">
     <a href="{{$bookmark->url}}">{{$bookmark->title}}</a><br />
     {{ $bookmark->created_at }} to <span>
@@ -11,7 +11,9 @@
     @endforeach
     </span>
   </div>
-@endforeach
+@empty
+  <p>Well, it appears {{$user->username}} hasn't bookmarked anything. Let's all depend on our memory like {{$user->username}}, mind like a steel trout.</p>
+@endforelse
 
 <span>
 <div class="pagination-centered">
