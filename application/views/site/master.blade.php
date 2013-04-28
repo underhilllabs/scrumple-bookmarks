@@ -12,6 +12,9 @@
       <li class=""><a href="/users/">users</a></li>
       <li><a href="/tags/">tags</a></li>
     </ul>
+    <ul class="nav pull-right">
+      <li><a href="/user/login">log in</a>
+    </ul>
   </div>
 </div>
 <div class="container-fluid">
