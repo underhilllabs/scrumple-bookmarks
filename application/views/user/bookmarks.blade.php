@@ -1,7 +1,7 @@
 @layout('site.master')
 
 @section('content')
-<h1>Let's check out so-and-so's bookmarks</h1>
+<h1>Let's check out {{$user->username}}'s bookmarks</h1>
 @foreach ($bookmarks->results as $bookmark)
   <div class="bookmark">
     <a href="{{$bookmark->url}}">{{$bookmark->title}}</a><br />
