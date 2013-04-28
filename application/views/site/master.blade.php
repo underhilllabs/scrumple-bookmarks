@@ -6,7 +6,7 @@
 <body>
 <div class="navbar">
   <div class="navbar-inner">
-    <a class="brand" href="#">Scrumple Bookmarks</a>
+    <a class="brand" href="/">Scrumple Bookmarks</a>
     <ul class="nav">
       <li class=""><a href="/">bookmarks</a></li>
       <li class=""><a href="/users/">users</a></li>
