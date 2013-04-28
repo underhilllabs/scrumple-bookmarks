@@ -10,6 +10,16 @@ class User_Controller extends Base_Controller {
                   ->with('header',"user");
     }
 
+	public function action_bookmarks($id)
+    {
+      $bookmarks = Bookmark::with('tags')
+                  ->where('user_id', '=', $id)
+                  ->order_by('created_at','desc')
+                  ->paginate(25);
+      return View::make('user.bookmarks')
+                  ->with('bookmarks', $bookmarks);
+
+    }
 	public function action_show()
     {
 

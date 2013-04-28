@@ -44,17 +44,8 @@ Route::get('bookmark/(:num)', 'bookmark@show');
 Route::get('tag/(:any)', 'tag@show');
 Route::get('tags', 'tag@index');
 Route::get('users', 'user@index');
+Route::get('user/(:num)/bookmarks', 'user@bookmarks');
 
-// show all tags
-//Route::get('tags', function () {
-//  $tags = Tag::getTagCount();
-//  return View::make('tags.index')->with('tags',$tags);
-//});
-
-//Route::get('users', function () {
-//   $users = User::all();
-//   return View::make('user.all')->with('users',$users);
-//});
 
 Route::get('user/(:num)', function ($id) {
   $user = User::find($id);
