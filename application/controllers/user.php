@@ -32,14 +32,16 @@ class User_Controller extends Base_Controller {
     }
   public function post_register()
     {
-      if(Input::post('inputPassword') == Input::post('inputPassword2'))
+      if(Input::get('inputPassword') == Input::get('inputPassword2'))
       {
         $user = new User;
-        $user->email = Input::post('inputEmail');
-        $user->password = Hash::make(Input::post('inputPassword'));
+        $user->username = Input::get('inputName');
+        $user->email = Input::get('inputEmail');
+        $user->password = Hash::make(Input::get('inputPassword'));
         $user->save();
       } else {
-        return Redirect::to('/user/register');
+        $message = "Passwords don't match!";
+        return View::make('user.register')->with('message',$message);
       }
       return View::make('user.profile');
     }
@@ -53,12 +55,13 @@ class User_Controller extends Base_Controller {
   // Posted login form, attempt to authenticate
   public function post_login()
     {
-      $email = Input::post('inputEmail');
-      $password = Input::post('inputPassword');
+      $email = Input::get('inputEmail');
+      $password = Input::get('inputPassword');
       $credentials = array('username' => $email, 'password' => $password);
       if (Auth::attempt($credentials))
       {
-        return Redirect::to('user/profile');
+        return Redirect::to('/user/'.Auth::user()->id.'/bookmarks');
+        //return View::make('user.bookmarks');
       }
       else
       {
@@ -87,5 +90,4 @@ class User_Controller extends Base_Controller {
     {
 
     }
-
 }

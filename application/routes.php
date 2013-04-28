@@ -42,7 +42,9 @@ Route::get('users', 'user@index');
 Route::get('user/(:num)/bookmarks', 'user@bookmarks');
 Route::get('user/(:num)', 'user@show');
 Route::get('user/login', 'user@login');
+Route::post('user/login', 'user@login');
 Route::get('user/register', 'user@register');
+Route::post('user/register', 'user@register');
 
 //Route::get('user/(:num)', function ($id) {
 //  $user = User::find($id);
