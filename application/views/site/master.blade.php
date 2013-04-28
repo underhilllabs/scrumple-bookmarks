@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Some Tags</title>
+<title>Scrumple Bookmarks</title>
  {{ Asset::styles() }}
 </head>
 <body>
