@@ -32,11 +32,6 @@
 |
 */
 
-//Route::get('/', function()
-//{
-	//#return View::make('home.index');
-
-//});
 Route::get('/', 'bookmark@index');
 Route::get('bookmark/(:num)', 'bookmark@show');
 
@@ -45,12 +40,12 @@ Route::get('tag/(:any)', 'tag@show');
 Route::get('tags', 'tag@index');
 Route::get('users', 'user@index');
 Route::get('user/(:num)/bookmarks', 'user@bookmarks');
+Route::get('user/(:num)', 'user@show');
 
-
-Route::get('user/(:num)', function ($id) {
-  $user = User::find($id);
-  return View::make('user.show');
-});
+//Route::get('user/(:num)', function ($id) {
+//  $user = User::find($id);
+//  return View::make('user.show');
+//});
 
 /*
 |--------------------------------------------------------------------------

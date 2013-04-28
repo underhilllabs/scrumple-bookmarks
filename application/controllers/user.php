@@ -2,7 +2,9 @@
 
 class User_Controller extends Base_Controller {
 
-	public function action_index()
+  public $restful = true;
+
+	public function get_index()
     {
       $users = User::all();
       return View::make('user.all')
@@ -10,7 +12,7 @@ class User_Controller extends Base_Controller {
                   ->with('header',"user");
     }
 
-	public function action_bookmarks($id)
+	public function get_bookmarks($id)
     {
       $user = User::find($id);
       $bookmarks = Bookmark::with('tags')
@@ -22,6 +24,27 @@ class User_Controller extends Base_Controller {
                   ->with('bookmarks', $bookmarks);
 
     }
+
+  // Show login form
+  public function get_login()
+    {
+      return View::make('user.login');
+    }
+
+  // Posted login form, attempt to authenticate
+  public function post_login()
+    {
+      if (Auth::attempt($credentials))
+      {
+        return Redirect::to('user/profile');
+      }
+    }
+
+  public function get_profile($id)
+    {
+      return View::make('user.profile');
+    }
+
 	public function action_show()
     {
 
