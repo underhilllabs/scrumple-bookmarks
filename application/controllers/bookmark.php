@@ -29,7 +29,19 @@ class Bookmark_Controller extends Base_Controller {
 
 	public function action_create()
     {
-
+      if(Auth::user()) {
+        $user_id = Auth::user()->id;
+        $bookmark = new Bookmark;
+        $bookmark->user_id = $user_id;
+        $bookmark->url = Input::get('address');
+        $bookmark->title = Input::get('title');
+        $bookmark->desc = Input::get('desc');
+        $bookmark->save();
+        $bid = $bookmark->id;
+        if(!$bid) {
+          die("no bookmark id!");
+        }
+      }
     }
 
 	public function action_edit()
