@@ -1,5 +1,27 @@
 <?php
 
+
+Route::get('/', 'bookmark@index');
+Route::get('bookmark/(:num)', 'bookmark@show');
+Route::get('bookmark/new', 'bookmark@new');
+Route::post('bookmark/new', 'bookmark@create');
+
+// show bookmarks with specified
+Route::get('tag/(:any)', 'tag@show');
+Route::get('tags', 'tag@index');
+Route::get('users', 'user@index');
+Route::get('user/(:num)/bookmarks', 'user@bookmarks');
+Route::get('user/(:num)', 'user@show');
+Route::get('user/login', 'user@login');
+Route::post('user/login', 'user@login');
+Route::get('user/register', 'user@register');
+Route::post('user/register', 'user@register');
+
+//Route::get('user/(:num)', function ($id) {
+//  $user = User::find($id);
+//  return View::make('user.show');
+//});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -31,26 +53,6 @@
 |		});
 |
 */
-
-Route::get('/', 'bookmark@index');
-Route::get('bookmark/(:num)', 'bookmark@show');
-
-// show bookmarks with specified
-Route::get('tag/(:any)', 'tag@show');
-Route::get('tags', 'tag@index');
-Route::get('users', 'user@index');
-Route::get('user/(:num)/bookmarks', 'user@bookmarks');
-Route::get('user/(:num)', 'user@show');
-Route::get('user/login', 'user@login');
-Route::post('user/login', 'user@login');
-Route::get('user/register', 'user@register');
-Route::post('user/register', 'user@register');
-
-//Route::get('user/(:num)', function ($id) {
-//  $user = User::find($id);
-//  return View::make('user.show');
-//});
-
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers

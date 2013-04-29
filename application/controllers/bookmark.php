@@ -18,6 +18,15 @@ class Bookmark_Controller extends Base_Controller {
                   ->with('bookmark', $bookmark);
     }
 
+	public function action_new()
+    {
+      if(Auth::user()) {
+        return View::make('bookmark.new');
+      } else {
+        return Redirect::to('/user/login');
+      }
+    }
+
 	public function action_create()
     {
 
