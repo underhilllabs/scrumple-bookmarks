@@ -41,6 +41,7 @@ class Bookmark_Controller extends Base_Controller {
         if(!$bid) {
           die("no bookmark id!");
         }
+        return Redirect::to('/user/'.$user_id.'/bookmarks');
       }
     }
 
