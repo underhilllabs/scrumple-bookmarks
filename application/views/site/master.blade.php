@@ -11,6 +11,9 @@
       <li class=""><a href="/">bookmarks</a></li>
       <li class=""><a href="/users/">users</a></li>
       <li><a href="/tags/">tags</a></li>
+    @if(Auth::user())
+      <li><a href="/bookmark/new/">add a bookmark</a></li>
+    @endif
     </ul>
     <ul class="nav pull-right">
     @if(Auth::user())
