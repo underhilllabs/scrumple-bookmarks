@@ -40,6 +40,15 @@ class Bookmark_Controller extends Base_Controller {
         $bid = $bookmark->id;
         if(!$bid) {
           die("no bookmark id!");
+        } else {
+          // split on a comma and optional space
+          foreach(preg_split("/,[\s]*/", Input::get('tags')) as $tag_name) {
+            $tag = new Tag;
+            $tag->user_id = $user_id;
+            $tag->bookmark_id = $bid;
+            $tag->name = $tag_name;
+            $tag->save();
+          }
         }
         return Redirect::to('/user/'.$user_id.'/bookmarks');
       }
