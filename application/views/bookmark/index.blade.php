@@ -4,7 +4,10 @@
 @foreach ($bookmarks->results as $bookmark)
   <div class="bookmark">
     <a href="{{$bookmark->url}}">{{$bookmark->title}}</a><br />
-    {{ preg_split("/ /",$bookmark->created_at)[0] }} to <span>
+    {{ preg_split("/ /",$bookmark->created_at)[0] }} <span>
+    @if ($bookmark->tags)
+      to
+    @endif
     @foreach ($bookmark->tags as $tag) 
       <a href="/tags/{{ $tag->name }}">{{ $tag->name }}</a>
     @endforeach

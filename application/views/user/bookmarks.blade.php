@@ -5,7 +5,10 @@
 @forelse ($bookmarks->results as $bookmark)
   <div class="bookmark">
     <a href="{{$bookmark->url}}">{{$bookmark->title}}</a><br />
-    {{ $bookmark->created_at }} to <span>
+    {{ $bookmark->created_at }} <span>
+    @if ($bookmark->tags)
+      to
+    @endif
     @foreach ($bookmark->tags as $tag) 
       <a href="/tags/{{ $tag->name }}">{{ $tag->name }}</a>
     @endforeach
