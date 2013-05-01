@@ -9,4 +9,7 @@ class Bookmark extends Eloquent
     public function tags() {
       return $this->has_many('Tag');
     }
+    public function user() {
+      return $this->belongs_to('User');
+    }
 }

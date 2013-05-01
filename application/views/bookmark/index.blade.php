@@ -9,6 +9,7 @@
     @foreach ($bookmark->tags as $tag) 
       <a href="/tags/{{ $tag->name }}">{{ $tag->name }}</a>
     @endforeach
+    by <a href="/user/{{$bookmark->user_id}}/bookmarks/">{{ $bookmark->user()->first()->username }}</a>
     </span>
   </div>
 @endforeach
