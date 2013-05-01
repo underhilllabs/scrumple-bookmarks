@@ -57,7 +57,8 @@ class User_Controller extends Base_Controller {
     {
       $email = Input::get('inputEmail');
       $password = Input::get('inputPassword');
-      $credentials = array('username' => $email, 'password' => $password);
+      $remember = Input::get('remember');
+      $credentials = array('username' => $email, 'password' => $password, 'remember' => $remember);
       if (Auth::attempt($credentials))
       {
         return Redirect::to('/user/'.Auth::user()->id.'/bookmarks');
