@@ -7,7 +7,7 @@ Route::get('bookmark/new', 'bookmark@new');
 Route::post('bookmark/new', 'bookmark@create');
 
 // show bookmarks with specified
-Route::get('tag/(:any)', 'tag@show');
+Route::get('tag/(:any)', 'tags@show');
 Route::get('tags', 'tag@index');
 Route::get('users', 'user@index');
 Route::get('user/(:num)/bookmarks', 'user@bookmarks');

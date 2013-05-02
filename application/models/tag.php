@@ -7,7 +7,7 @@ class Tag extends Eloquent
     public static $rules = array();
     public static $timestamps = true;
     public function bookmarks() {
-      return $this->has_many('Bookmark');
+      return $this->has_one('Bookmark');
     }
     public static function getTagCount() {
       // select name, count(*) from tags group by name order by 2 desc;

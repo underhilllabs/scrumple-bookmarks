@@ -1,6 +1,6 @@
 <?php
 
-class Tag_Controller extends Base_Controller {
+class Tags_Controller extends Base_Controller {
 
 	public function action_index()
     {
@@ -11,8 +11,16 @@ class Tag_Controller extends Base_Controller {
 
 	public function action_show($id)
     {
-      $bookmark = Bookmark::find($id);
-      return View::make('bookmark.show')
-                  ->with('bookmark', $bookmark);
+      $tag = Tag::where('name','=',$id)->first();
+      $bookmarks = DB::table('bookmarks')
+                    ->join('tags', 'bookmarks.id', '=', 'tags.bookmark_id')
+                    ->where('tags.name','=',$id)
+                    ->order_by('bookmarks.updated_at','desc')
+                    //->get(array('bookmarks.title','bookmarks.url','bookmarks.created_at'))
+                    ->paginate(25, array('title','url','bookmarks.created_at'));
+      return View::make('tags.show')
+                  ->with('tag',$tag)
+                  ->with('bookmarks', $bookmarks);
+
     }
 }
