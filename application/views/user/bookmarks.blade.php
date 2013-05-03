@@ -10,7 +10,7 @@
       to
     @endif
     @foreach ($bookmark->tags as $tag) 
-      <a href="/tags/{{ $tag->name }}">{{ $tag->name }}</a>
+      <a href="/tag/{{ $tag->name }}">{{ $tag->name }}</a>
     @endforeach
     </span>
   </div>

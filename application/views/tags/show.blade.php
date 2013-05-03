@@ -5,7 +5,7 @@
 @foreach ($bookmarks->results as $bookmark)
   <div class="bookmark">
     <a href="{{$bookmark->url}}">{{$bookmark->title}}</a><br />
-    {{ $bookmark->created_at }} to <span>
+    {{ preg_slit("/ /",$bookmark->created_at)[0] }}<span>
     </span>
   </div>
 @endforeach
