@@ -16,6 +16,10 @@ Welcome, {{Auth::user()->username}}
 
 {{Form::label('tags', 'Tags')}}
 {{Form::text('tags', Input::get('tags'))}}
+
+{{Form::label('private', 'Private')}}
+{{Form::checkbox('private', Input::get('private'))}}
+
 <br />
 {{Form::submit('Add Bookmark')}}
 {{Form::close()}}

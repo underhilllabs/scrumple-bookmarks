@@ -32,6 +32,7 @@ class Bookmark_Controller extends Base_Controller {
         $bookmark->url = Input::get('address');
         $bookmark->title = Input::get('title');
         $bookmark->desc = Input::get('desc');
+        $bookmark->private = (Input::get('private') == True ? 1 : 0);
         $bookmark->save();
         $bid = $bookmark->id;
         if(!$bid) {
