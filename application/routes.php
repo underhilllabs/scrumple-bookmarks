@@ -1,7 +1,8 @@
 <?php
 
-
 Route::get('/', 'bookmark@index');
+Route::post('api/bookmark/update/(:num)', 'api.bookmark@update');
+Route::get('api/bookmark/delete/(:num)', 'api.bookmark@delete');
 Route::get('bookmark/(:num)', 'bookmark@show');
 Route::get('bookmark/new', 'bookmark@new');
 Route::post('bookmark/new', 'bookmark@create');
