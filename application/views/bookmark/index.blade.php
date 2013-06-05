@@ -12,7 +12,7 @@
       <a href="/tag/{{ $tag->name }}">{{ $tag->name }}</a>
     @endforeach
   by <a href="/user/{{$bookmark->user_id}}/bookmarks/">{{ $bookmark->user()->first()->username }}</a>
-    @if ($bookmark->user_id == Auth::user()->id)
+    @if (Auth::user() && $bookmark->user_id == Auth::user()->id)
       - <a href="/bookmarks/{{$bookmark->id}}/edit">edit</a>
       - <a href="/bookmarks/{{$bookmark->id}}/delete">delete</a>
     @endif
