@@ -13,3 +13,12 @@ div.bookmark {
   background: #eee;
   border-bottom: 1px dashed #aaa;
 }
+
+div#taglist {
+  padding-left: 1em;
+  padding-bottom: 1em;
+  background: #eee;
+}
+div#taglist li  {
+  list-style-type: none;
+}

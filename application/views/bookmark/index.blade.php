@@ -24,6 +24,7 @@
 </div>
 
 <div class="span3" id="taglist">
+<h3>Popular Tags</h3>
 </div>
 
 <br clear="all" />
