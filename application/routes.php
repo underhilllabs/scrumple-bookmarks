@@ -8,9 +8,7 @@ Route::get('bookmark/new', 'bookmark@new');
 Route::post('bookmark/new', 'bookmark@create');
 
 // api json call for tags
-Route::get('api/tag/(:num)', function($num) {
-  return Response::json();
-});
+Route::get('api/tag/(:num)', 'api.tag@show');
 // show bookmarks with specified
 Route::get('tag/(:any)', 'tags@show');
 Route::get('tags', 'tag@index');

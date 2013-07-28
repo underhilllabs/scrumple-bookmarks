@@ -33,4 +33,6 @@
 {{ $bookmarks->links() }}
 </div>
 </span>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/scrumple.js"></script>
 @endsection
